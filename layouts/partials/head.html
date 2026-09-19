@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta content="{{ .Site.Author.name }}" name="author">
+    <meta content="{{ .Site.Params.author.name }}" name="author">
 
     <!-- Red Oak Stuff -->
     <meta name="microblog-theme" content="Red Oak 2021.1.0">
@@ -35,15 +35,15 @@
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<!-- RSS -->
-    {{ if .RSSLink -}}
-        <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ with .OutputFormats.Get "RSS" -}}
+        <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
         <link href="{{ "podcast.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="Podcast" />
-        <link rel="alternate" type="application/json" title="{{ .Site.Title }}" href="{{ "feed.json" | absURL }}" />
+        <link rel="alternate" type="application/json" title="{{ $.Site.Title }}" href="{{ "feed.json" | absURL }}" />
         <link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}" />
     {{ end -}}
 
     <!-- Links -->
-    <link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
+    <link rel="me" href="https://micro.blog/{{ .Site.Params.author.username }}" />
 
     {{ with .Site.Params.twitter_username }}
         <link rel="me" href="https://twitter.com/{{ . }}" />

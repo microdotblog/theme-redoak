@@ -4,7 +4,7 @@
     <div class="hide-for-small">
         <div class="sidebar-zone identity" id="identitySide">
             <span>
-                <a href="/"><img src="{{ .Site.Author.avatar }}" class="photo" /></a>
+                <a href="/"><img src="{{ .Site.Params.author.avatar }}" class="photo" /></a>
             </span>
             <!--<a class='current' href="index.html">-->
                 <!-- Photo --><!--<img src="/images/sample_photo.jpg" class="photo"> -->
@@ -57,7 +57,7 @@
                 {{ with .Site.Params.github_username }}
                     <li><a href="https://github.com/{{ . }}"><i class="fab fa-github"></i></a></li>
                 {{ end }}
-                {{ with .Site.Author.username }}
+                {{ with .Site.Params.author.username }}
                     <li><a href="https://micro.blog/{{ . }}"><i class="fab fa-microblog"></i></a></li>
                 {{ end }}
             </ul>
